@@ -7,7 +7,7 @@
     tools:context=".Registro">
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/tvnombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -21,7 +21,7 @@
         app:layout_constraintVertical_bias="0.204" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/tvpassword2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -35,7 +35,7 @@
         app:layout_constraintVertical_bias="0.586" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/tvemail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -49,7 +49,7 @@
         app:layout_constraintVertical_bias="0.336" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/tvpassword1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -63,7 +63,7 @@
         app:layout_constraintVertical_bias="0.465" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnRegistrarse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Registrarse"

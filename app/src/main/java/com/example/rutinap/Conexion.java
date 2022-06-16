@@ -27,7 +27,7 @@ public class Conexion extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db ){
 
         db.execSQL(sqlusuarios);
-        db.execSQL(sqlingreso);
+        //db.execSQL(sqlingreso);
     }
 
     @Override
