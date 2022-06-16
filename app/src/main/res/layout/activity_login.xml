@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
 
     android:padding="10dp"
-    tools:context=".LoginActivity">
+    tools:context=".login">
 
     <EditText
         android:id="@+id/username1"
@@ -38,28 +38,29 @@
         app:layout_constraintVertical_bias="0.603" />
 
     <Button
-        android:id="@+id/btnsignin1"
-        android:layout_width="250dp"
+        android:id="@+id/login"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/password1"
-        android:layout_centerHorizontal="true"
-        android:text="Iniciar Sesion"
+        android:backgroundTint="#f0ee3d"
+        android:text="Iniciar sesion"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.811" />
+        app:layout_constraintVertical_bias="0.776"></Button>
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="311dp"
-        android:layout_height="203dp"
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/img"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintHorizontal_bias="0.586"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.111"
-       />
+        app:layout_constraintVertical_bias="0.102" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
