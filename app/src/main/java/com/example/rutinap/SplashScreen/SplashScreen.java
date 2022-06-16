@@ -5,9 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.rutinap.MainActivity;
+import com.example.rutinap.Inicio;
 import com.example.rutinap.R;
-import com.example.rutinap.ui.login.LoginActivity;
+import com.example.rutinap.Registro;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -27,7 +27,7 @@ public class SplashScreen extends AppCompatActivity {
                 }catch(InterruptedException e){
                     e.printStackTrace();
                 }finally {
-                    Intent intent =new Intent(SplashScreen.this, LoginActivity.class);
+                    Intent intent =new Intent(SplashScreen.this, Inicio.class);
                     startActivity(intent);
                     finish();
                 }
