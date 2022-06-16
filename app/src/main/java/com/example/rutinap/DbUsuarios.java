@@ -45,3 +45,6 @@ public class DbUsuarios extends  Conexion{
     }
 }
 */
+
+//  Este archivo ya es obsoleto el codigo no sirve.
+

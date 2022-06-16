@@ -15,13 +15,13 @@ public class Registro extends AppCompatActivity {
     TextView Nombre, Email , Password, Password2;
     Button Registrar;
 
-    Conexion DB;
+    DBHelper DB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        DB= new Conexion(this);
+        DB= new DBHelper(this);
 
         Nombre=findViewById(R.id.tvnombre);
         Email=findViewById(R.id.tvemail);
