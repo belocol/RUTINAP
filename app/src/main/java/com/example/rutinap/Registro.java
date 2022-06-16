@@ -2,6 +2,7 @@ package com.example.rutinap;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,13 +15,13 @@ public class Registro extends AppCompatActivity {
     TextView Nombre, Email , Password, Password2;
     Button Registrar;
 
-
+    Conexion DB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final Conexion conn = new Conexion(getApplicationContext());
+        DB= new Conexion(this);
 
         Nombre=findViewById(R.id.tvnombre);
         Email=findViewById(R.id.tvemail);
@@ -33,30 +34,64 @@ public class Registro extends AppCompatActivity {
         Registrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DbUsuarios dbUsuarios = new DbUsuarios(Registro.this);
-
-                long id= dbUsuarios.insertarUsuario(Nombre.getText().toString(),Email.getText().
-                        toString(),Password.getText().toString());
 
 
-                if(id>0){
-                    limpiar();
-                    Toast.makeText(Registro.this ,"Registro guardado",Toast.LENGTH_LONG).show();
-                }else{
-                    Toast.makeText(Registro.this ,"Error al guardar registro",Toast.LENGTH_LONG).show();
+                String nombre =Nombre.getText().toString();
+                String email =Email.getText().toString();
+                String password =Password.getText().toString();
+                String password2 =Password2.getText().toString();
+
+                if(nombre.equals("")||email.equals("")||password.equals("")||password2.equals(""))
+                    Toast.makeText(Registro.this, "Por favor rellene todos los campos", Toast.LENGTH_SHORT).show();
+                else{
+                    if(password.equals(password2)){
+                        Boolean checkuser = DB.checkusername(email);
+                        if(checkuser==false){
+                            Boolean insert = DB.insertData(email,password);
+                            if(insert==true){
+                                Toast.makeText(Registro.this, "Registro Exitoso", Toast.LENGTH_SHORT).show();
+                                limpiar();
+                                Intent intent = new Intent(getApplicationContext(),login.class);
+
+                                startActivity(intent);
+                            }else{
+                                Toast.makeText(Registro.this, "Hubo un error", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        else{
+                            Toast.makeText(Registro.this, "Este usuario ya existe, Inicie Sesion", Toast.LENGTH_SHORT).show();
+                        }
+                    }else{
+                        Toast.makeText(Registro.this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
+                    }
                 }
+
+
+
+
+
+
+
+
             }
-        });
 
-
-
+    });
     }
 
-    private void limpiar(){
+
+private void limpiar(){
         Nombre.setText("");
         Email.setText("");
         Password.setText("");
         Password2.setText("");
 
-    }
 }
+
+}
+
+    /*private void limpiar(){
+        Nombre.setText("");
+        Email.setText("");
+        Password.setText("");
+        Password2.setText("");
+    */
