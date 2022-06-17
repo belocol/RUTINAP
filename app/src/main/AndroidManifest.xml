@@ -11,6 +11,12 @@
         android:theme="@style/Theme.RUTINAP"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".CrudRutinas"
+            android:exported="false" />
+        <activity
+            android:name=".VistaInicio"
+            android:exported="false" />
+        <activity
             android:name=".App"
             android:exported="false" />
         <activity

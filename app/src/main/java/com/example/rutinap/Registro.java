@@ -27,7 +27,7 @@ public class Registro extends AppCompatActivity {
         Email=findViewById(R.id.tvemail);
         Password=findViewById(R.id.tvpassword1);
         Password2=findViewById(R.id.tvpassword2);
-        Registrar=findViewById(R.id.btnRegistrarse);
+        Registrar=findViewById(R.id.registrar);
 
 
 
