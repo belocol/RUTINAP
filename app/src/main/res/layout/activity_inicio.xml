@@ -65,16 +65,10 @@
         <ImageView
             android:id="@+id/imageView6"
             android:layout_width="186dp"
-            android:layout_height="100dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             app:srcCompat="@drawable/img2" />
 
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="32dp"
-            android:layout_height="100dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/img" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

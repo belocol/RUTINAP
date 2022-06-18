@@ -23,6 +23,7 @@ implements View.OnClickListener{
     ArrayList<Rutinas> listDatos;
     private View.OnClickListener listener;
 
+
     public ListAdapter(ArrayList<Rutinas> listDatos) {
         this.listDatos = listDatos;
     }
@@ -64,6 +65,7 @@ implements View.OnClickListener{
 
     }
 
+
     public class ViewHolderDatos extends RecyclerView.ViewHolder {
         TextView Nrutina;
 
@@ -81,5 +83,18 @@ implements View.OnClickListener{
             Nrutina.setText(Nrutinas);
 
         }
+
+
+
+
     }
+
+    public void removeItem(int position){
+        listDatos.remove(position);
+        notifyItemRemoved(position);
+
+    }
+
+
 }
+

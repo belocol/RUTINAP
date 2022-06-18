@@ -10,6 +10,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.Button;
 
 import java.util.ArrayList;
@@ -23,22 +24,16 @@ Button btnNuevaRutina;
 
 DBHelper conn;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crud_rutinas);
 
-
-
         conn = new DBHelper(this);
-
         listDatos = new ArrayList<>();
-
-
         btnNuevaRutina= (Button) findViewById(R.id.btnNewRutina);
-
-
-
 
 
         recyclerView = (RecyclerView) findViewById(R.id.LiRecyclerView);
@@ -47,24 +42,19 @@ DBHelper conn;
 
         consultarListaRutinas();
 
-
-
         ListAdapter adapter  = new ListAdapter(listDatos);
         recyclerView.setAdapter(adapter);
-
         adapter.notifyDataSetChanged();
-        /*listDatos= new ArrayList<String>();
+
+        adapter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
 
-        for(int i=0;i<=50;i++){
-            listDatos.add("Dato # "+i+"");
-
-        }*/
+            }
+        });
 
 
-      /*  ListAdapter adapter = new ListAdapter(listDatos);
-        recyclerView.setAdapter(adapter);
-*/
     }
 
     private void consultarListaRutinas() {

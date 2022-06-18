@@ -56,11 +56,12 @@ public class NuevaRutina extends AppCompatActivity {
                 values.put("nombreejercicio ",listDatos.get(recyclerView.getChildAdapterPosition(view)).getNrutina());
 
                 Toast.makeText(getApplicationContext(),
-                        "Sellecion: " +listDatos.get
+                        "Se agrego: " +listDatos.get
                                 (recyclerView.getChildAdapterPosition(view)).getNrutina(),Toast.LENGTH_SHORT).show();
 
 
                 db.insert("tricep",null,values);
+                adapter.notifyDataSetChanged();
             }
         });
 
