@@ -13,62 +13,55 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.view.menu.MenuView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
-    private List<ListElement> LiData;
-    private LayoutInflater LiInflater;
-    private Context context;
+public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolderDatos> {
 
 
-    public ListAdapter(List<ListElement> itemList, Context context){
-        this.LiInflater = LayoutInflater.from(context);
-        this.context = context;
-        this.LiData = itemList;
+    ArrayList<Rutinas> listDatos;
+
+    public ListAdapter(ArrayList<Rutinas> listDatos) {
+        this.listDatos = listDatos;
+    }
+
+    @NonNull
+    @Override
+    public ViewHolderDatos onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.list_element,null,false);
+        return new ViewHolderDatos(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolderDatos holder, int position) {
+        holder.Nrutina.setText(listDatos.get(position).getNrutina());
+
+        //holder.asingarDatos(listDatos.get(position));
 
     }
 
     @Override
-
-    public int getItemCount() {return LiData.size();}
-
-
-
-    @Override
-    public ListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LiInflater.inflate(R.layout.list_element,null);
-        return new ListAdapter.ViewHolder(view);
+    public int getItemCount() {
+        return listDatos.size();
     }
 
-
-    @Override
-
-    public void onBindViewHolder (final ListAdapter.ViewHolder holder, final int position){
-        holder.bindData(LiData.get(position));
-    }
-
-
-    public void setItems(List<ListElement> items) {LiData = items;}
-
-
-    public class ViewHolder extends RecyclerView.ViewHolder{
-        ImageView iconImageView;
+    public class ViewHolderDatos extends RecyclerView.ViewHolder {
         TextView Nrutina;
 
 
-        ViewHolder(View itemView){
+
+
+        public ViewHolderDatos(@NonNull View itemView) {
             super(itemView);
-            iconImageView = itemView.findViewById(R.id.iconImageView);
-            Nrutina = itemView.findViewById(R.id.Nrutina);
+            Nrutina=(TextView ) itemView.findViewById(R.id.Nrutina);
 
         }
 
+        public void asingarDatos(String Nrutinas ) {
 
+            Nrutina.setText(Nrutinas);
 
-        void bindData(final ListElement item){
-            Nrutina.setText(item.getNrtuina());
         }
-
     }
-
 }
