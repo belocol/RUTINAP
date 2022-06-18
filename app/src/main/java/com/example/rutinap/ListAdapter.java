@@ -16,10 +16,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolderDatos> {
+public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolderDatos>
+implements View.OnClickListener{
 
 
     ArrayList<Rutinas> listDatos;
+    private View.OnClickListener listener;
 
     public ListAdapter(ArrayList<Rutinas> listDatos) {
         this.listDatos = listDatos;
@@ -30,6 +32,8 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolderDato
     public ViewHolderDatos onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.list_element,null,false);
+
+        view.setOnClickListener(this);
         return new ViewHolderDatos(view);
     }
 
@@ -44,6 +48,20 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolderDato
     @Override
     public int getItemCount() {
         return listDatos.size();
+    }
+
+
+    public void setOnClickListener(View.OnClickListener listener){
+        this.listener=listener;
+    }
+
+    @Override
+    public void onClick(View view) {
+
+        if(listener!=null){
+            listener.onClick(view);
+        }
+
     }
 
     public class ViewHolderDatos extends RecyclerView.ViewHolder {

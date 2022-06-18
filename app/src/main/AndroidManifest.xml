@@ -11,6 +11,9 @@
         android:theme="@style/Theme.RUTINAP"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".NuevaRutina"
+            android:exported="false" />
+        <activity
             android:name=".CrudRutinas"
             android:exported="false" />
         <activity
