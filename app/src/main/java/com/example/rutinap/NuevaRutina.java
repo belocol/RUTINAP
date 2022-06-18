@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -48,9 +49,18 @@ public class NuevaRutina extends AppCompatActivity {
         adapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                SQLiteDatabase db=conn.getReadableDatabase();
+
+                ContentValues values =new ContentValues();
+                values.put("nombreejercicio ",listDatos.get(recyclerView.getChildAdapterPosition(view)).getNrutina());
+
                 Toast.makeText(getApplicationContext(),
                         "Sellecion: " +listDatos.get
                                 (recyclerView.getChildAdapterPosition(view)).getNrutina(),Toast.LENGTH_SHORT).show();
+
+
+                db.insert("tricep",null,values);
             }
         });
 

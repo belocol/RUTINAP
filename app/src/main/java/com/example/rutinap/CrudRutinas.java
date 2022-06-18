@@ -51,6 +51,8 @@ DBHelper conn;
 
         ListAdapter adapter  = new ListAdapter(listDatos);
         recyclerView.setAdapter(adapter);
+
+        adapter.notifyDataSetChanged();
         /*listDatos= new ArrayList<String>();
 
 
@@ -71,7 +73,7 @@ DBHelper conn;
        Rutinas rutinas = null;
 
 
-        Cursor cursor = db.rawQuery("SELECT * FROM pecho ",null);
+        Cursor cursor = db.rawQuery("SELECT * FROM tricep ",null);
 
 
         while (cursor.moveToNext()){
@@ -80,6 +82,7 @@ DBHelper conn;
             rutinas.setNrutina(cursor.getString(0));
 
             listDatos.add(rutinas);
+
         }
 
         btnNuevaRutina.setOnClickListener(new View.OnClickListener() {
